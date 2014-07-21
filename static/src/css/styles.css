@@ -1,0 +1,25 @@
+.videos {
+    position: relative;
+    float: left;
+    width: 75%;
+}
+
+.participants {
+    float: left;
+    width: 25%;
+}
+
+button.question {
+    margin-bottom: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+div[pc-asker-video] {
+    position: absolute;
+    width: 264px;
+    height: 198px;
+    /*background-color: blue;*/
+    bottom: 30px;
+    right: 30px;
+}

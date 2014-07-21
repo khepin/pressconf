@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js" ></script>
+	<script type="text/javascript" src="libs.js"></script>
+	<script type="text/javascript" src="build.js"></script>
+	<link rel="stylesheet" type="text/css" href="foundation.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet">
+	<title></title>
+</head>
+<body ng-app="pressconf" ng-controller="MainCtrl">
+	<nav class="top-bar" data-topbar>
+	  <ul class="title-area">
+	    <li class="name">
+	      <h1><a href="#">Press Conferences!</a></h1>
+	    </li>
+	     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+	  </ul>
+
+	  <section class="top-bar-section">
+	      <!-- Right Nav Section -->
+	      <ul class="right"  ng-show="user.username">
+	        <li>
+	        	<a href="#">{{user.username}}</a>
+	        </li>
+	        <li>
+	        	<button ng-click="logout()">
+	  				<i class="fa fa-power-off"></i>
+	        	</button>
+	        </li>
+	      </ul>
+	    </section>
+	</nav>
+
+	<div ng-show="user.username">
+ 		<div ng-view></div>
+	</div>
+	<div ng-hide="user.username" class="row">
+	  	<div class="large-12 columns">
+	  		<h2>What is this?</h2>
+	  		<p>
+	  			<strong>PressConf</strong> is a website to let you hold video press conferences
+	  			online. You setup a press conference, others can join it and listen to what you have to say.
+	  		</p>
+	  		<p>Only you the creator of the conference is allowed to talk by default.
+	  		Other participants can request you to let them ask a question in which case
+	  		you will see a <button class="tiny question">Go!</button> button next to their name. By clicking this
+	  		button you give them the ability to broadcast their question to all the attendees of
+	  		the conference. You can stop their question at any time by clicking the
+	  		<button class="tiny question"><i class="fa fa-ban"></i></button> button that appears
+	  		after they start talking.</p>
+	  		<h3>Should I use it?</h3>
+	  		<p>Most probably no! Not in its current stage. This is just a demo,
+	  		it is <em>buggy and not very secure</em> in the current stage. Use it if you want
+	  		to have fun and play around. Not more.</p>
+	  		<h3>If you still want to try:</h3>
+			<form ng-hide="user.username" ng-submit="login(username)">
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+			  <div class="row">
+			    <div class="large-12 columns">
+			      <label>Before we start, we'll need to know your name
+			        <input type="text" placeholder="Bob" ng-model="username" />
+			      </label>
+			      <button type="submit" class="button expand">That's how they call me!</button>
+			    </div>
+			  </div>
+			</form>
+	  	</div>
+	  </div>
+</body>
+</html>

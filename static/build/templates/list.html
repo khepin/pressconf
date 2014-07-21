@@ -1,0 +1,9 @@
+<div ng-controller="ConfListCtrl">
+    <br>
+	<ul class="pricing-table">
+        <li class="title">Ongoing conferences</li>
+		<li ng-repeat="conf in conferences" class="bullet-item">
+			<a href="#/conferences/{{conf.name}}">{{conf.name}}</a>
+		</li>
+	</ul>
+</div>

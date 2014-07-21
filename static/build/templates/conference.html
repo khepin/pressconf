@@ -1,0 +1,25 @@
+<div ng-controller="ConfCtrl">
+	<div class="videos">
+		<div pc-main-video session="OtSession"></div>
+		<div pc-asker-video session="OtSession"><div></div></div>
+	</div>
+	<div class="participants row">
+		<div class="large-12 medium-12 small-12 columns">
+			<br>
+			<button ng-click="ask()" class="button expand" ng-show="user.role !== 'moderator'">Request to ask a question</button>
+			<ul class="pricing-table">
+				<li class="title">Participants</li>
+				<li ng-repeat="participant in participants" class="bullet-item clearfix">
+					<div class="left">
+						{{participant.name}}
+						<i ng-show="participant.hasQuestion" class="fa fa-question-circle"></i>
+					</div>
+					<button class="tiny right question" ng-click="allowQuestion(participant)" ng-show="participant.hasQuestion">Go!</button>
+					<button class="tiny right question" ng-click="stopQuestion(participant)" ng-show="participant.talking">
+						<i class="fa fa-ban"></i>
+					</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
